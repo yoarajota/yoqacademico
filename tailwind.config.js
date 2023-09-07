@@ -5,6 +5,9 @@ module.exports = {
     './node_modules/astro-boilerplate-components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
+    fontFamily: {
+      sans: ['Roboto', 'ui-sans-serif', 'system-ui'],
+    },
     extend: {},
   },
   plugins: [
