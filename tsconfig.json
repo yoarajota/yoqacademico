@@ -5,6 +5,7 @@
     "module": "ESNext",
     // Enable node-style module resolution, for things like npm package imports.
     "moduleResolution": "node",
+    "allowJs": true,
     // Enable JSON imports.
     "resolveJsonModule": true,
 
@@ -42,5 +43,12 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.astro"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.astro",
+    "src/js/BARRETDave.js",
+    "src/js/RSADave.js",
+    "src/ts/BIGINTDave.Js"
+  ]
 }

@@ -6,29 +6,37 @@ import { AppConfig } from '@/utils/AppConfig';
 const { title } = AppConfig;
 const { description } = AppConfig;
 
+console.log('Welcome, server console!');
+
 const errors = { username: '', email: '', password: '' };
 if (Astro.request.method === 'POST') {
   try {
-    const data = await Astro.request.formData();
-    const username = data.get('username');
-    const password = data.get('password');
+    // const data = await Astro.request.formData();
+    // const username = data.get('username');
+    // const password = data.get('password');
     // Do something with the data
   } catch (error) {
     if (error instanceof Error) {
+      //
     }
   }
 }
 ---
 
 <Base head={{ title, description }}>
-  <div class='m-auto h-3/4 w-3/4 rounded-xl bg-slate-800 p-3'>
-    <h3 class='font-sans text-3xl'>yoqacademico</h3>
-    <form method='POST'>
-      <Field type='text' name='username' />
+  <div class="m-auto h-3/4 w-3/4 rounded-xl bg-slate-800 p-3">
+    <h3 class="font-sans text-3xl">yoqacademico</h3>
+    <form method="POST">
+      <Field type="text" name="username" />
       {errors.username && <p>{errors.username}</p>}
-      <Field type='text' type='password' name='password' />
+      <Field type="text" type="password" name="password" />
       {errors.password && <p>{errors.password}</p>}
-      <button type='submit'>Submit</button>
+      <button type="submit">Submit</button>
     </form>
   </div>
+  <button id="button">oi</button>
 </Base>
+
+<script>
+  import '../ts/home';
+</script>
