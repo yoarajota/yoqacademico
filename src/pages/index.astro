@@ -6,8 +6,6 @@ import { AppConfig } from '@/utils/AppConfig';
 const { title } = AppConfig;
 const { description } = AppConfig;
 
-console.log('Welcome, server console!');
-
 const errors = { username: '', email: '', password: '' };
 if (Astro.request.method === 'POST') {
   try {
@@ -34,9 +32,4 @@ if (Astro.request.method === 'POST') {
       <button type="submit">Submit</button>
     </form>
   </div>
-  <button id="button">oi</button>
 </Base>
-
-<script>
-  import '../ts/home';
-</script>
