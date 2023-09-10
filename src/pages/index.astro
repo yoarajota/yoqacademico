@@ -5,31 +5,35 @@ import { AppConfig } from '@/utils/AppConfig';
 
 const { title } = AppConfig;
 const { description } = AppConfig;
-
-const errors = { username: '', email: '', password: '' };
-if (Astro.request.method === 'POST') {
-  try {
-    // const data = await Astro.request.formData();
-    // const username = data.get('username');
-    // const password = data.get('password');
-    // Do something with the data
-  } catch (error) {
-    if (error instanceof Error) {
-      //
-    }
-  }
-}
 ---
 
 <Base head={{ title, description }}>
-  <div class="m-auto h-3/4 w-3/4 rounded-xl bg-slate-800 p-3">
+  <main class="m-auto h-3/4 w-3/4 rounded-xl bg-slate-800 p-3">
     <h3 class="font-sans text-3xl">yoqacademico</h3>
-    <form method="POST">
+    <form id="form" method="POST">
       <Field type="text" name="username" />
-      {errors.username && <p>{errors.username}</p>}
       <Field type="text" type="password" name="password" />
-      {errors.password && <p>{errors.password}</p>}
-      <button type="submit">Submit</button>
+      <button type="button" id="submit">Submit</button>
+      <button type="button" id="submit">Submit</button>
     </form>
-  </div>
+  </main>
+
+  <script is:inline>
+    function submit() {
+      const username = document?.getElementById('username');
+      const password = document?.getElementById('password');
+
+      fetch('http://localhost:3333', {
+        method: 'POST',
+        body: JSON.stringify({
+          username: username?.value,
+          password: password?.value,
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+    }
+    document?.getElementById('submit')?.addEventListener('click', submit);
+  </script>
 </Base>
